@@ -46,4 +46,27 @@ What happens and why?
 The character cannot be converted to numeric. The factor is converted to numeric.
 Does this help explain what happens when you try to take the mean?
 Yes.
+
 ## Problem 2
+
+Download a package. (This code wouldn't be executed.)
+```{r, eval=FALSE}
+install.packages("palmerpenguins")
+```
+Download a dataset.
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+A short description of penguins
+```{r}
+penguins
+nrow(penguins)
+ncol(penguins)
+mean(pull(penguins,flipper_length_mm),na.rm=T)
+```
+Make a scatterplot
+```{r}
+myplot.png=ggplot(penguins,aes(x=bill_length_mm,y=flipper_length_mm,color=species))+geom_point()
+myplot.png
+ggsave("myplot.png",height=4, width=4)
+```
