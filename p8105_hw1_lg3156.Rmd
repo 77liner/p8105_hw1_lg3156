@@ -30,5 +30,20 @@ mean(pull(prob1_df,char_vec))
 mean(pull(prob1_df,factor_vec))
 ```
 What works and what doesn't?
-The mean function works for samp and samp_gt_0, and it doesn't work for char_vec or factor_vec. Because char_vec and factor_vec are not numeric or logical.
+The mean function works for samp and samp_gt_0,because they are numbers. However, it doesn't work for char_vec or factor_vec, because they are not numeric or logical.
+
+```{r, eval=FALSE}
+as.numeric(pull(prob1_df,samp))
+as.numeric(pull(prob1_df,samp_gt_0))
+as.numeric(pull(prob1_df,char_vec))
+as.numeric(pull(prob1_df,factor_vec))
+
+as.numeric(pull(prob1_df,samp_gt_0))*pull(prob1_df,samp)
+factor(pull(prob1_df,samp_gt_0))*pull(prob1_df,samp)
+as.numeric(factor(pull(prob1_df,samp_gt_0)))*pull(prob1_df,samp)
+```
+What happens and why?
+The character cannot be converted to numeric. The factor is converted to numeric.
+Does this help explain what happens when you try to take the mean?
+Yes.
 ## Problem 2
