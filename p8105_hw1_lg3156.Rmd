@@ -1,0 +1,8 @@
+---
+title: "Homework 1"
+author: "Liner Ge"
+date: "2020/9/16"
+output: github_document
+---
+
+This is my solution to hw1.
